@@ -5,7 +5,6 @@ import * as monaco from "monaco-editor/esm/vs/editor/editor.api"
 import { createOnigScanner, createOnigString, loadWASM } from "vscode-oniguruma"
 import { SimpleLanguageInfoProvider } from "./providers"
 import { registerLanguages } from "./register"
-import RegexUtils from "./utils/regex"
 import "monaco-editor/esm/vs/language/typescript/monaco.contribution.js"
 // import 'monaco-editor/esm/vs/language/json/monaco.contribution.js';
 import "monaco-editor/esm/vs/language/html/monaco.contribution.js"
@@ -16,7 +15,10 @@ import {
   BUILT_IN_LANGUAGE_DEFINITIONS,
   DemoScopeNameInfo
 } from "./constants/language-grammer"
-import { fetchWrapper, loadVSCodeOnigurumWASM } from "./utilities"
+
+// utils
+import RegexUtils from "./utils/regex"
+import CommonUtils from "./utils/common"
 
 // vscode themes
 import VsCodeDarkTheme from "./theme/vs-dark-plus-theme"
@@ -110,7 +112,7 @@ async function main(
     scopeName: ScopeName
   ) => Promise<monaco.languages.LanguageConfiguration>
 ) {
-  const data: ArrayBuffer | Response = await loadVSCodeOnigurumWASM()
+  const data: ArrayBuffer | Response = await CommonUtils.loadVSCodeOnigurumWASM()
   await loadWASM(data)
 
   const languages: monaco.languages.ILanguageExtensionPoint[] = [
@@ -129,7 +131,7 @@ async function main(
 
     const { path } = grammars[scopeName]
     const uri = `/grammars/${path}`
-    const response = await fetchWrapper(uri)
+    const response = await CommonUtils.fetchWrapper(uri)
     const grammar = await response.text()
     const type = path.endsWith(".json") ? "json" : "plist"
     return { type, grammar }
@@ -143,7 +145,7 @@ async function main(
     }
 
     const uri = `/configurations/${language}.json`
-    const response = await fetchWrapper(uri)
+    const response = await CommonUtils.fetchWrapper(uri)
     const rawConfiguration = await response.text()
     return RegexUtils.rehydrateRegexps(rawConfiguration)
   }
