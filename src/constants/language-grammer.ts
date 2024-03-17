@@ -1,4 +1,4 @@
-import { ScopeNameInfo } from "./providers"
+import { ScopeNameInfo } from "../providers"
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api"
 
 export interface DemoScopeNameInfo extends ScopeNameInfo {

@@ -11,7 +11,11 @@ import "monaco-editor/esm/vs/language/typescript/monaco.contribution.js"
 import "monaco-editor/esm/vs/language/html/monaco.contribution.js"
 import "monaco-editor/esm/vs/language/css/monaco.contribution.js"
 import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es"
-import { BUILT_IN_GRAMMARS, BUILT_IN_LANGUAGE_DEFINITIONS, DemoScopeNameInfo } from "./constants"
+import {
+  BUILT_IN_GRAMMARS,
+  BUILT_IN_LANGUAGE_DEFINITIONS,
+  DemoScopeNameInfo
+} from "./constants/language-grammer"
 import { fetchWrapper, loadVSCodeOnigurumWASM } from "./utilities"
 
 // vscode themes
