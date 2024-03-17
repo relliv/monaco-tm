@@ -1,7 +1,7 @@
 import type * as monaco from "monaco-editor"
 type Monaco = typeof monaco
 import type { IGrammar, IRawGrammar, IRawTheme, IOnigLib, StackElement } from "vscode-textmate"
-import type { LanguageId, LanguageInfo } from "./register"
+import type { LanguageId, LanguageInfo } from "./utils/register"
 
 import { INITIAL, Registry, parseRawGrammar } from "vscode-textmate"
 // @ts-ignore

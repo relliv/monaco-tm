@@ -1,7 +1,7 @@
 // utils
 import RegexUtils from "./utils/regex"
+import RegisterUtils from "./utils/register"
 
 import { SimpleLanguageInfoProvider } from "./providers"
-import { registerLanguages } from "./register"
 
-export { SimpleLanguageInfoProvider, registerLanguages, RegexUtils }
+export { SimpleLanguageInfoProvider, RegisterUtils, RegexUtils }
