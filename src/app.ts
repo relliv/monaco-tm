@@ -6,8 +6,6 @@ import { createOnigScanner, createOnigString, loadWASM } from "vscode-oniguruma"
 import { SimpleLanguageInfoProvider } from "./providers"
 import { registerLanguages } from "./register"
 import RegexUtils from "./utils/regex"
-import VsCodeDarkTheme from "./vs-dark-plus-theme"
-import VsCodeLightTheme from "./vs-light-plus-theme"
 import "monaco-editor/esm/vs/language/typescript/monaco.contribution.js"
 // import 'monaco-editor/esm/vs/language/json/monaco.contribution.js';
 import "monaco-editor/esm/vs/language/html/monaco.contribution.js"
@@ -15,6 +13,11 @@ import "monaco-editor/esm/vs/language/css/monaco.contribution.js"
 import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es"
 import { BUILT_IN_GRAMMARS, BUILT_IN_LANGUAGE_DEFINITIONS, DemoScopeNameInfo } from "./constants"
 import { fetchWrapper, loadVSCodeOnigurumWASM } from "./utilities"
+
+// vscode themes
+import VsCodeDarkTheme from "./theme/vs-dark-plus-theme"
+import VsCodeLightTheme from "./theme/vs-light-plus-theme"
+
 // @ts-ignore
 import { initVimMode } from "monaco-vim"
 ;(window as any).main = main
