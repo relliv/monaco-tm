@@ -5,7 +5,7 @@ import * as monaco from "monaco-editor/esm/vs/editor/editor.api"
 import { createOnigScanner, createOnigString, loadWASM } from "vscode-oniguruma"
 import { SimpleLanguageInfoProvider } from "./providers"
 import { registerLanguages } from "./register"
-import { rehydrateRegexps } from "./configuration"
+import RegexUtils from "./utils/regex"
 import VsCodeDarkTheme from "./vs-dark-plus-theme"
 import VsCodeLightTheme from "./vs-light-plus-theme"
 import "monaco-editor/esm/vs/language/typescript/monaco.contribution.js"
@@ -17,7 +17,6 @@ import { BUILT_IN_GRAMMARS, BUILT_IN_LANGUAGE_DEFINITIONS, DemoScopeNameInfo } f
 import { fetchWrapper, loadVSCodeOnigurumWASM } from "./utilities"
 // @ts-ignore
 import { initVimMode } from "monaco-vim"
-
 ;(window as any).main = main
 ;(window as any).changeTheme = changeTheme
 ;(window as any).monaco = monaco
@@ -139,7 +138,7 @@ async function main(
     const uri = `/configurations/${language}.json`
     const response = await fetchWrapper(uri)
     const rawConfiguration = await response.text()
-    return rehydrateRegexps(rawConfiguration)
+    return RegexUtils.rehydrateRegexps(rawConfiguration)
   }
 
   const onigLib = Promise.resolve({

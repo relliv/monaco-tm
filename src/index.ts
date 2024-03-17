@@ -1,5 +1,7 @@
-import { rehydrateRegexps } from "./configuration"
+// utils
+import RegexUtils from "./utils/regex"
+
 import { SimpleLanguageInfoProvider } from "./providers"
 import { registerLanguages } from "./register"
 
-export { SimpleLanguageInfoProvider, registerLanguages, rehydrateRegexps }
+export { SimpleLanguageInfoProvider, registerLanguages, RegexUtils }
