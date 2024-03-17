@@ -1,5 +1,5 @@
 {
-  "name": "monaco-tm",
+  "name": "monaco-textmate-loader",
   "version": "0.0.0",
   "description": "demo of wiring up Monaco to TextMate",
   "main": "./dist/index.js",
@@ -7,7 +7,8 @@
   "scripts": {
     "demo": "webpack-dev-server --mode development --config webpack.config.cjs --host 0.0.0.0 --port 8084",
     "build": "(rm -r dist output || true)|| exit 0 && webpack --config webpack.config.cjs --progress && cp -R configurations dist/configurations && cp -R fonts dist/fonts && cp -R grammars dist/grammars && mkdir dist/node_modules && cp -R node_modules/vscode-oniguruma dist/node_modules/vscode-oniguruma && cp index.html dist/index.html && mkdir output && cp -R dist output/monaco-textmate.bundle && open output",
-    "release": "tsc"
+    "release": "tsc",
+    "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
   "dependencies": {
     "emmet-monaco-es": "^5.1.2",
