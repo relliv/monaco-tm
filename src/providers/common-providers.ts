@@ -1,15 +1,18 @@
 import type * as monaco from "monaco-editor"
-type Monaco = typeof monaco
 import type { IGrammar, IRawGrammar, IRawTheme, IOnigLib, StackElement } from "vscode-textmate"
-import type { LanguageId, LanguageInfo } from "./utils/register"
-
 import { INITIAL, Registry, parseRawGrammar } from "vscode-textmate"
+
 // @ts-ignore
 import { generateTokensCSSForColorMap } from "monaco-editor/esm/vs/editor/common/languages/supports/tokenization.js"
 // @ts-ignore
 import { TokenizationRegistry } from "monaco-editor/esm/vs/editor/common/languages.js"
 // @ts-ignore
 import { Color } from "monaco-editor/esm/vs/base/common/color.js"
+
+// utils
+import type { LanguageId, LanguageInfo } from "../utils/register"
+
+type Monaco = typeof monaco
 
 /** String identifier for a "scope name" such as 'source.cpp' or 'source.java'. */
 export type ScopeName = string

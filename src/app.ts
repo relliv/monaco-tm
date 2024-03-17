@@ -1,11 +1,6 @@
-import type { LanguageId } from "./utils/register"
-import type { ScopeName, TextMateGrammar } from "./providers"
-
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api"
 import { createOnigScanner, createOnigString, loadWASM } from "vscode-oniguruma"
-import { SimpleLanguageInfoProvider } from "./providers"
 import "monaco-editor/esm/vs/language/typescript/monaco.contribution.js"
-// import 'monaco-editor/esm/vs/language/json/monaco.contribution.js';
 import "monaco-editor/esm/vs/language/html/monaco.contribution.js"
 import "monaco-editor/esm/vs/language/css/monaco.contribution.js"
 import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es"
@@ -15,10 +10,15 @@ import {
   DemoScopeNameInfo
 } from "./constants/language-grammer"
 
+// providers
+import { SimpleLanguageInfoProvider } from "./providers/common-providers"
+import type { ScopeName, TextMateGrammar } from "./providers/common-providers"
+
 // utils
 import RegexUtils from "./utils/regex"
 import CommonUtils from "./utils/common"
 import RegisterUtils from "./utils/register"
+import type { LanguageId } from "./utils/register"
 
 // vscode themes
 import VsCodeDarkTheme from "./theme/vs-dark-plus-theme"
