@@ -231,7 +231,7 @@ class TokensProviderCache {
           throw Error(`failed to load grammar for ${scopeName}`)
         }
       })
-    
+
     this.scopeNameToGrammar.set(scopeName, promise)
 
     return promise
@@ -253,7 +253,7 @@ function createStyleElementForColorsCSS(): HTMLStyleElement {
   if (head == null) {
     head = document.getElementsByTagName("head")[0]
   }
-  
+
   head?.appendChild(style)
   return style
 
