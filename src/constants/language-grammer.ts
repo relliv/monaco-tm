@@ -241,6 +241,10 @@ export const BUILT_IN_GRAMMARS: { [scopeName: string]: DemoScopeNameInfo } = {
   "source.svelte": {
     language: "svelte",
     path: "svelte.tmLanguage.json"
+  },
+  "source.dbml": {
+    language: "dbml",
+    path: "dbml.tmLanguage.json"
   }
 }
 
@@ -773,5 +777,10 @@ export const BUILT_IN_LANGUAGE_DEFINITIONS: monaco.languages.ILanguageExtensionP
     id: "svelte",
     aliases: ["Svelte", "svelte"],
     extensions: [".svelte"]
+  },
+  {
+    id: "dbml",
+    aliases: ["dbml"],
+    extensions: [".dbml"]
   }
 ]
