@@ -23,10 +23,6 @@ import type { LanguageId } from "./utils/register"
 // vscode themes
 import VsCodeDarkTheme from "./theme/vs-dark-plus-theme"
 import VsCodeLightTheme from "./theme/vs-light-plus-theme"
-;(window as any).main = main
-;(window as any).changeTheme = changeTheme
-;(window as any).monaco = monaco
-;(window as any).setTheme = setTheme
 
 MonacoEnvironment = {
   getWorkerUrl: (_moduleId: any, label: String) => {
@@ -194,7 +190,5 @@ async function main(
     }
   })
 
-  ;(window as any).editor = mainEditor
-  ;(window as any).applyListeners((window as any).editor)
   provider.injectCSS()
 }
