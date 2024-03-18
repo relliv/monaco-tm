@@ -32,8 +32,8 @@ devDependencies:
     specifier: 7.1.0
     version: 7.1.0(monaco-editor@0.47.0)(webpack@5.90.3)
   prettier:
-    specifier: 2.0.5
-    version: 2.0.5
+    specifier: 3.2.5
+    version: 3.2.5
   style-loader:
     specifier: ^3.3.1
     version: 3.3.4(webpack@5.90.3)
@@ -2156,9 +2156,9 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier@2.0.5:
-    resolution: {integrity: sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==}
-    engines: {node: '>=10.13.0'}
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
