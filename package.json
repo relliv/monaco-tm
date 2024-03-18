@@ -1,6 +1,6 @@
 {
   "name": "monaco-textmate-loader",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "demo of wiring up Monaco to TextMate",
   "main": "./dist/index.js",
   "type": "module",
@@ -11,7 +11,7 @@
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
   "dependencies": {
-    "emmet-monaco-es": "^5.1.2",
+    "emmet-monaco-es": "^5.3.2",
     "monaco-editor": "0.47.0",
     "monaco-vim": "^0.4.1",
     "vscode-oniguruma": "2.0.1",
