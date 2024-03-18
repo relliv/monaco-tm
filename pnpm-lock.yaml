@@ -7,13 +7,13 @@ settings:
 dependencies:
   emmet-monaco-es:
     specifier: ^5.1.2
-    version: 5.3.2(monaco-editor@0.34.0)
+    version: 5.3.2(monaco-editor@0.47.0)
   monaco-editor:
-    specifier: https://github.com/thebaselab/monaco-editor-release#db5010dfc38d8229a7ba374f94b83a9138831f45
-    version: github.com/thebaselab/monaco-editor-release/db5010dfc38d8229a7ba374f94b83a9138831f45
+    specifier: 0.47.0
+    version: 0.47.0
   monaco-vim:
     specifier: ^0.4.1
-    version: 0.4.1(monaco-editor@0.34.0)
+    version: 0.4.1(monaco-editor@0.47.0)
   vscode-oniguruma:
     specifier: 1.5.1
     version: 1.5.1
@@ -30,7 +30,7 @@ devDependencies:
     version: 6.2.0(webpack@5.90.3)
   monaco-editor-webpack-plugin:
     specifier: 7.0.1
-    version: 7.0.1(monaco-editor@0.34.0)(webpack@5.90.3)
+    version: 7.0.1(monaco-editor@0.47.0)(webpack@5.90.3)
   prettier:
     specifier: 2.0.5
     version: 2.0.5
@@ -1062,13 +1062,13 @@ packages:
     resolution: {integrity: sha512-iWgEEvREL4GTXXHKohhh33+6Y8XkPI5eHihDmm8zUk5Zo7HICEW+wI/j5kJ2tbuNUCXJ/sNXa03ajW635DiJXA==}
     dev: true
 
-  /emmet-monaco-es@5.3.2(monaco-editor@0.34.0):
+  /emmet-monaco-es@5.3.2(monaco-editor@0.47.0):
     resolution: {integrity: sha512-fb8z9lUVtqXx4IGQQceMwuz7/hYDJdLQj40ZOMQOtBJ4qLTo5XT9H0u/DhfCSWyOktTxZZxiYfkQsGasrv6u0w==}
     peerDependencies:
       monaco-editor: '>=0.22.0'
     dependencies:
       emmet: 2.4.7
-      monaco-editor: github.com/thebaselab/monaco-editor-release/db5010dfc38d8229a7ba374f94b83a9138831f45
+      monaco-editor: 0.47.0
     dev: false
 
   /emmet@2.4.7:
@@ -1805,23 +1805,26 @@ packages:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
 
-  /monaco-editor-webpack-plugin@7.0.1(monaco-editor@0.34.0)(webpack@5.90.3):
+  /monaco-editor-webpack-plugin@7.0.1(monaco-editor@0.47.0)(webpack@5.90.3):
     resolution: {integrity: sha512-M8qIqizltrPlIbrb73cZdTWfU9sIsUVFvAZkL3KGjAHmVWEJ0hZKa/uad14JuOckc0GwnCaoGHvMoYtJjVyCzw==}
     peerDependencies:
       monaco-editor: '>= 0.31.0'
       webpack: ^4.5.0 || 5.x
     dependencies:
       loader-utils: 2.0.4
-      monaco-editor: github.com/thebaselab/monaco-editor-release/db5010dfc38d8229a7ba374f94b83a9138831f45
+      monaco-editor: 0.47.0
       webpack: 5.90.3(webpack-cli@4.10.0)
     dev: true
 
-  /monaco-vim@0.4.1(monaco-editor@0.34.0):
+  /monaco-editor@0.47.0:
+    resolution: {integrity: sha512-VabVvHvQ9QmMwXu4du008ZDuyLnHs9j7ThVFsiJoXSOQk18+LF89N4ADzPbFenm0W4V2bGHnFBztIRQTgBfxzw==}
+
+  /monaco-vim@0.4.1(monaco-editor@0.47.0):
     resolution: {integrity: sha512-+cy0TE9xarjLIgUexqxIEbat3K1l7WbiFSLZKAO2kYl1qFRvkeWn4ro/C4c6dK0i9+WQKUC4Dhu/nyCbZfA37w==}
     peerDependencies:
       monaco-editor: '*'
     dependencies:
-      monaco-editor: github.com/thebaselab/monaco-editor-release/db5010dfc38d8229a7ba374f94b83a9138831f45
+      monaco-editor: 0.47.0
     dev: false
 
   /ms@2.0.0:
@@ -2867,8 +2870,3 @@ packages:
   /yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: true
-
-  github.com/thebaselab/monaco-editor-release/db5010dfc38d8229a7ba374f94b83a9138831f45:
-    resolution: {tarball: https://codeload.github.com/thebaselab/monaco-editor-release/tar.gz/db5010dfc38d8229a7ba374f94b83a9138831f45}
-    name: monaco-editor
-    version: 0.34.0
