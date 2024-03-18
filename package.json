@@ -14,8 +14,8 @@
     "emmet-monaco-es": "^5.1.2",
     "monaco-editor": "0.47.0",
     "monaco-vim": "^0.4.1",
-    "vscode-oniguruma": "1.5.1",
-    "vscode-textmate": "7.0.1"
+    "vscode-oniguruma": "2.0.1",
+    "vscode-textmate": "9.0.0"
   },
   "devDependencies": {
     "css-loader": "6.10.0",

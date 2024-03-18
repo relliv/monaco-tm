@@ -15,11 +15,11 @@ dependencies:
     specifier: ^0.4.1
     version: 0.4.1(monaco-editor@0.47.0)
   vscode-oniguruma:
-    specifier: 1.5.1
-    version: 1.5.1
+    specifier: 2.0.1
+    version: 2.0.1
   vscode-textmate:
-    specifier: 7.0.1
-    version: 7.0.1
+    specifier: 9.0.0
+    version: 9.0.0
 
 devDependencies:
   css-loader:
@@ -2756,12 +2756,12 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vscode-oniguruma@1.5.1:
-    resolution: {integrity: sha512-JrBZH8DCC262TEYcYdeyZusiETu0Vli0xFgdRwNJjDcObcRjbmJP+IFcA3ScBwIXwgFHYKbAgfxtM/Cl+3Spjw==}
+  /vscode-oniguruma@2.0.1:
+    resolution: {integrity: sha512-poJU8iHIWnC3vgphJnrLZyI3YdqRlR27xzqDmpPXYzA93R4Gk8z7T6oqDzDoHjoikA2aS82crdXFkjELCdJsjQ==}
     dev: false
 
-  /vscode-textmate@7.0.1:
-    resolution: {integrity: sha512-zQ5U/nuXAAMsh691FtV0wPz89nSkHbs+IQV8FDk+wew9BlSDhf4UmWGlWJfTR2Ti6xZv87Tj5fENzKf6Qk7aLw==}
+  /vscode-textmate@9.0.0:
+    resolution: {integrity: sha512-Cl65diFGxz7gpwbav10HqiY/eVYTO1sjQpmRmV991Bj7wAoOAjGQ97PpQcXorDE2Uc4hnGWLY17xme+5t6MlSg==}
     dev: false
 
   /wasm-dce@1.0.2:
