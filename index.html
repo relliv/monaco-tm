@@ -7,69 +7,68 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta charset="UTF-8" />
-  </head>
-  <style>
-    @font-face {
-      font-family: "Fira Code";
-      src: local("FiraCode-Regular"),
-        url("fonts/FiraCode-Regular.ttf") format("truetype");
-    }
-    body {
-      font-family: system-ui, -apple-system;
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      position: fixed;
-      touch-action: none;
-    }
-    #overlay {
-      width: 0;
-      height: 0;
-      position: absolute;
-    }
-    .addedBackground,
-    .deletedBackground,
-    .modifiedBackground {
-      width: 3px !important;
-      margin-left: 6px;
-      transform: translate(-50%, 0);
-      transition: 0.1s;
-    }
-    .addedBackground {
-      background: rgb(129, 184, 139);
-    }
-    .deletedBackground {
-      background: rgb(202, 75, 81);
-    }
-    .modifiedBackground {
-      background: rgb(102, 175, 224);
-    }
-    .addedBackground:hover,
-    .deletedBackground:hover,
-    .modifiedBackground:hover {
-      width: 8px !important;
-    }
-    @media (prefers-color-scheme: dark) {
+
+    <style>
+      body {
+        font-family: system-ui, -apple-system;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: fixed;
+        touch-action: none;
+      }
+      #overlay {
+        width: 0;
+        height: 0;
+        position: absolute;
+      }
+      .addedBackground,
+      .deletedBackground,
+      .modifiedBackground {
+        width: 3px !important;
+        margin-left: 6px;
+        transform: translate(-50%, 0);
+        transition: 0.1s;
+      }
       .addedBackground {
-        background: rgb(88, 124, 12);
+        background: rgb(129, 184, 139);
       }
       .deletedBackground {
-        background: rgb(148, 21, 27);
+        background: rgb(202, 75, 81);
       }
       .modifiedBackground {
-        background: rgb(12, 125, 157);
+        background: rgb(102, 175, 224);
       }
-    }
-  </style>
+      .addedBackground:hover,
+      .deletedBackground:hover,
+      .modifiedBackground:hover {
+        width: 8px !important;
+      }
+      @media (prefers-color-scheme: dark) {
+        .addedBackground {
+          background: rgb(88, 124, 12);
+        }
+        .deletedBackground {
+          background: rgb(148, 21, 27);
+        }
+        .modifiedBackground {
+          background: rgb(12, 125, 157);
+        }
+      }
+    </style>
+  </head>
+
   <body>
     <div tabindex="0" id="overlay"></div>
     <div
       id="container"
       style="width: 100%; height: 100vh; overflow: hidden"
     ></div>
+
     <script src="app.bundle.js"></script>
+
     <script defer>
       var states = {};
 
@@ -80,64 +79,6 @@
       var previousDecoration = [];
 
       let devicehasCursor = false;
-      let vimMode = null;
-
-      class VimStatusBarAdpator {
-        constructor(node, editor, sanitizer) {
-          console.log("Constuctor called");
-          window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-            Event: "vim.mode.change",
-            newMode: "--NORMAL--",
-          });
-        }
-
-        setMode(ev){
-          let mode = `--${ev.mode.toUpperCase()}--`;
-          if (ev.mode === "visual") {
-            if (ev.subMode === "linewise") {
-              mode = "--VISUAL LINE--";
-            } else if (ev.subMode === "blockwise") {
-              mode = "--VISUAL BLOCK--";
-            } else {
-              mode = "--VISUAL--";
-            }
-          }
-          window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-            Event: "vim.mode.change",
-            newMode: mode,
-          });
-        }
-
-        setKeyBuffer(key) {
-          window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-            Event: "vim.keybuffer.set",
-            buffer: key,
-          });
-        }
-
-        toggleVisibility(isVisible) {
-          window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-            Event: "vim.visible.set",
-            isVisible: isVisible,
-          });
-        }
-
-        closeInput() {
-          window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-            Event: "vim.close.input"
-          });
-        }
-
-        clear(){
-          window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-            Event: "vim.clear",
-          });
-        }
-
-        setSec(text, callback, options) {
-          // TODO: Handle prompt to enable ex commands and search
-        }
-      }
 
       setTimeout(() => {
         if (typeof editor === "undefined") {
@@ -685,16 +626,6 @@
         const model = monaco.editor.getModel(monaco.Uri.parse(base64ToString(base64Url)));
         if (!model) return;
         editor.setModel(model);
-      }
-
-      function toggleVimMode(enabled){
-        if (enabled) {
-          if (vimMode) {return};
-          vimMode = initVimMode(editor, true, VimStatusBarAdpator);
-        }else {
-          vimMode?.dispose();
-          vimMode = null;
-        }
       }
     </script>
   </body>
