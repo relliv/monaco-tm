@@ -11,7 +11,6 @@
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
   "dependencies": {
-    "emmet-monaco-es": "^5.3.2",
     "monaco-editor": "0.47.0",
     "vscode-oniguruma": "2.0.1",
     "vscode-textmate": "9.0.0"
