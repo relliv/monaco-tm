@@ -39,7 +39,7 @@ export type SimpleLanguageInfoProviderConfig = {
   theme: IRawTheme
 
   onigLib: Promise<IOnigLib>
-  monaco: Monaco
+  monaco: Monaco | any
 }
 
 export interface ScopeNameInfo {

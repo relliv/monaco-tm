@@ -1,9 +1,6 @@
-import * as monaco from "monaco-editor/esm/vs/editor/editor.api"
 import { createOnigScanner, createOnigString, loadWASM } from "vscode-oniguruma"
-import "monaco-editor/esm/vs/language/typescript/monaco.contribution.js"
-import "monaco-editor/esm/vs/language/html/monaco.contribution.js"
-import "monaco-editor/esm/vs/language/css/monaco.contribution.js"
-// import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es"
+
+// constants
 import {
   BUILT_IN_GRAMMARS,
   BUILT_IN_LANGUAGE_DEFINITIONS,
@@ -24,31 +21,7 @@ import type { LanguageId } from "./utils/register"
 import VsCodeDarkTheme from "./theme/vs-dark-plus-theme"
 import VsCodeLightTheme from "./theme/vs-light-plus-theme"
 
-MonacoEnvironment = {
-  getWorkerUrl: (_moduleId: any, label: String) => {
-    if (label === "json") {
-      return "./json.worker.bundle.js"
-    }
-
-    if (label === "css" || label === "scss" || label === "less") {
-      return "./css.worker.bundle.js"
-    }
-
-    if (label === "html" || label === "handlebars" || label === "razor") {
-      return "./html.worker.bundle.js"
-    }
-
-    if (label === "typescript" || label === "javascript") {
-      return "./ts.worker.bundle.js"
-    }
-
-    return "./editor.worker.bundle.js"
-  }
-}
-
-// emmetHTML()
-// emmetCSS()
-// emmetJSX()
+declare var monaco: any
 
 export default class TextmateLoader {
   private static provider: SimpleLanguageInfoProvider | undefined
@@ -117,32 +90,27 @@ export default class TextmateLoader {
   /**
    * Loads language support and theme for the editor.
    *
-   * @param {LanguageId} language - the language identifier
+   * @param {any} options - the options for the editor
    * @param {string} theme - the theme for the editor
    * @param {monaco.languages.ILanguageExtensionPoint[]} extraLanguages - additional language extension points
    * @param {{ [scopeName: string]: DemoScopeNameInfo }} extraGrammars - additional grammars
    * @param {(scopeName: ScopeName) => Promise<TextMateGrammar>} fetchExtraGrammar - asynchronous function to fetch extra grammar
-   * @param {(scopeName: ScopeName) => Promise<monaco.languages.LanguageConfiguration>} fetchExtraConfiguration - asynchronous function to fetch extra configuration
+   * @param {(scopeName: ScopeName) => Promise<any>} fetchExtraConfiguration - asynchronous function to fetch extra configuration
    */
   public static async load(
-    _language: LanguageId,
-    theme: string,
-    initMoacoCallback: () => void,
-    extraLanguages: monaco.languages.ILanguageExtensionPoint[] = [],
+    element: any,
+    options: any,
+    theme: string = "vs-dark",
+    extraLanguages: any = [],
     extraGrammars: { [scopeName: string]: DemoScopeNameInfo } = {},
     fetchExtraGrammar?: (scopeName: ScopeName) => Promise<TextMateGrammar>,
-    fetchExtraConfiguration?: (
-      scopeName: ScopeName
-    ) => Promise<monaco.languages.LanguageConfiguration>
-  ): Promise<void> {
+    fetchExtraConfiguration?: (scopeName: ScopeName) => Promise<any>
+  ): Promise<any> {
     const data: ArrayBuffer | Response = await CommonUtils.loadVSCodeOnigurumWASM()
 
     await loadWASM(data)
 
-    const languages: monaco.languages.ILanguageExtensionPoint[] = [
-      ...BUILT_IN_LANGUAGE_DEFINITIONS,
-      ...extraLanguages
-    ]
+    const languages: any = [...BUILT_IN_LANGUAGE_DEFINITIONS, ...extraLanguages]
     const grammars: { [scopeName: string]: DemoScopeNameInfo } = {
       ...BUILT_IN_GRAMMARS,
       ...extraGrammars
@@ -154,23 +122,24 @@ export default class TextmateLoader {
       }
 
       const { path } = grammars[scopeName]
-      const uri = `/grammars/${path}`
-      const response = await CommonUtils.fetchWrapper(uri)
-      const grammar = await response.text()
-      const type = path.endsWith(".json") ? "json" : "plist"
+
+      const uri = `${options.baseUrl || "/assets"}/monaco-editor/grammars/${path}`,
+        response = await CommonUtils.fetchWrapper(uri),
+        grammar = await response.text(),
+        type = path.endsWith(".json") ? "json" : "plist"
+
       return { type, grammar }
     }
 
-    const fetchConfiguration = async (
-      language: LanguageId
-    ): Promise<monaco.languages.LanguageConfiguration> => {
+    const fetchConfiguration = async (language: LanguageId): Promise<any> => {
       if (language in extraLanguages && fetchExtraConfiguration) {
         return fetchExtraConfiguration(language)
       }
 
-      const uri = `/configurations/${language}.json`
-      const response = await CommonUtils.fetchWrapper(uri)
-      const rawConfiguration = await response.text()
+      const uri = `${options.baseUrl || "/assets"}/monaco-editor/configurations/${language}.json`,
+        response = await CommonUtils.fetchWrapper(uri),
+        rawConfiguration = await response.text()
+
       return RegexUtils.rehydrateRegexps(rawConfiguration)
     }
 
@@ -182,7 +151,7 @@ export default class TextmateLoader {
     this.provider = new SimpleLanguageInfoProvider({
       grammars,
       fetchGrammar,
-      configurations: languages.map((language) => language.id),
+      configurations: languages.map((language: any) => language.id),
       fetchConfiguration,
       theme: theme == "vs-dark" ? VsCodeDarkTheme : VsCodeLightTheme,
       onigLib,
@@ -195,34 +164,10 @@ export default class TextmateLoader {
       monaco
     )
 
-    initMoacoCallback()
+    const editorInstance = monaco.editor.create(element, options)
 
     this.provider.injectCSS()
+
+    return editorInstance
   }
 }
-
-const value = ""
-const id = "container"
-const element = document.getElementById(id)
-
-if (element == null) {
-  throw Error(`could not find element #${id}`)
-}
-
-monaco.editor.create(element, {
-  value: value,
-  language: "json",
-  theme: "vs-dark",
-  minimap: {
-    enabled: true
-  },
-  automaticLayout: true,
-  glyphMargin: false,
-  lineNumbersMinChars: 3,
-  contextmenu: true,
-  unicodeHighlight: {
-    ambiguousCharacters: false
-  }
-})
-
-TextmateLoader.load("json", "vs-dark", () => {})

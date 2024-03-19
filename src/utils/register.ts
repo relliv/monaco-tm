@@ -20,7 +20,7 @@ export default class RegisterUtils {
   public static registerLanguages(
     languages: monaco.languages.ILanguageExtensionPoint[],
     fetchLanguageInfo: (language: LanguageId) => Promise<LanguageInfo>,
-    monaco: Monaco
+    monaco: Monaco | any
   ) {
     // We have to register all of the languages with Monaco synchronously before
     // we can configure them.
