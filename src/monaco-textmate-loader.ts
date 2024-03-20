@@ -123,7 +123,7 @@ class MonacoTextmateLoader {
 
       const { path } = grammars[scopeName]
 
-      const uri = `${options.baseUrl || "/assets"}/monaco-editor/grammars/${path}`,
+      const uri = `${options.baseUrl || "/assets"}/monaco-textmate-loader/grammars/${path}`,
         response = await CommonUtils.fetchWrapper(uri),
         grammar = await response.text(),
         type = path.endsWith(".json") ? "json" : "plist"
@@ -136,7 +136,7 @@ class MonacoTextmateLoader {
         return fetchExtraConfiguration(language)
       }
 
-      const uri = `${options.baseUrl || "/assets"}/monaco-editor/configurations/${language}.json`,
+      const uri = `${options.baseUrl || "/assets"}/monaco-textmate-loader/configurations/${language}.json`,
         response = await CommonUtils.fetchWrapper(uri),
         rawConfiguration = await response.text()
 
