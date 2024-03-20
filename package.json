@@ -6,7 +6,8 @@
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.js",
   "scripts": {
-    "build": "node ./tools/cleanup.js && tsc && tsc -p ./tsconfig.types.json && node ./tools/copyAssets.js",
+    "build": "node tools/cleanup.js && tsc && tsc -p tsconfig.types.json && node tools/copyAssets && node tools/packageJson",
+    "package": "npm run build && npm pack",
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
   "private": false,
@@ -20,6 +21,12 @@
   "author": "Eyüp Erdoğan",
   "contributors": [
     "Eyüp Erdoğan <epsilonelittr@gmail.com>"
+  ],
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
   ],
   "dependencies": {
     "monaco-editor": "0.47.0",
