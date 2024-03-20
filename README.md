@@ -23,11 +23,21 @@ npm i @ngeenx/monaco-textmate-loader
 ```typescript
 import { MonacoTextmateLoader } from '@ngeenx/monaco-textmate-loader';
 
+// create normal editor
 const editorInstance = MonacoTextmateLoader.create(document.getElementById('editor'), {
   language: 'javascript', // required
   theme: 'vs-dark', // optional and default is 'vs-dark'
   value: 'console.log("Hello, World!");' // optional and default is ''
   baseUrl: '/assets' // optional and default is '/assets'
+});
+
+// create diff editor
+const editorInstance = MonacoTextmateLoader.create(document.getElementById('editor'), {
+  language: 'javascript', // required
+  theme: 'vs-dark', // optional and default is 'vs-dark'
+  value: 'console.log("Hello, World!");' // optional and default is ''
+  baseUrl: '/assets' // optional and default is '/assets'
+  diffEditor: true // required for diff editor
 });
 ```
 

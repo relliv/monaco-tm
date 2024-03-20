@@ -164,7 +164,9 @@ class MonacoTextmateLoader {
       monaco
     )
 
-    const editorInstance = monaco.editor.create(element, options)
+    const editorInstance = options.diffEditor
+      ? monaco.editor.createDiffEditor(element, options)
+      : monaco.editor.create(element, options)
 
     this.provider.injectCSS()
 
