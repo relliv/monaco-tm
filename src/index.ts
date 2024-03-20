@@ -5,5 +5,7 @@ import RegisterUtils from "./utils/register"
 // providers
 import { SimpleLanguageInfoProvider } from "./providers/common-providers"
 
+import TextmateLoader from "./textmate-loader"
+
 // exports
-export { SimpleLanguageInfoProvider, RegisterUtils, RegexUtils }
+export { TextmateLoader, SimpleLanguageInfoProvider, RegisterUtils, RegexUtils }
