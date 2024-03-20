@@ -1,5 +1,5 @@
 {
-  "name": "monaco-textmate-loader",
+  "name": "@ngeenx/monaco-textmate-loader",
   "version": "1.0.0",
   "description": "demo of wiring up Monaco to TextMate",
   "main": "./dist/index.js",
@@ -10,6 +10,18 @@
     "release": "tsc",
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngeenx/monaco-textmate-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ngeenx/monaco-textmate-loader/issues"
+  },
+  "author": "Eyüp Erdoğan",
+  "contributors": [
+    "Eyüp Erdoğan <epsilonelittr@gmail.com>"
+  ],
   "dependencies": {
     "monaco-editor": "0.47.0",
     "vscode-oniguruma": "2.0.1",
