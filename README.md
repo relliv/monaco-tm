@@ -22,9 +22,10 @@ npm i @ngeenx/monaco-textmate-loader
 
 ```typescript
 const editorInstance = await TextmateLoader.load(document.getElementById('editor'), {
-  language: 'javascript',
-  theme: 'vs-dark',
-  value: 'console.log("Hello, World!");'
+  language: 'javascript', // required
+  theme: 'vs-dark', // optional and default is 'vs-dark'
+  value: 'console.log("Hello, World!");' // optional and default is ''
+  baseUrl: '/assets' // optional and default is '/assets'
 });
 ```
 
