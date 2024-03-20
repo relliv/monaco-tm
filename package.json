@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "TextMate syntaxes loader for Monaco Editor",
   "type": "module",
+  "main": "src/index.ts",
   "scripts": {
     "release": "tsc",
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
