@@ -21,7 +21,9 @@ npm i @ngeenx/monaco-textmate-loader
 ## 🚀 Usage
 
 ```typescript
-const editorInstance = await TextmateLoader.load(document.getElementById('editor'), {
+import { MonacoTextmateLoader } from '@ngeenx/monaco-textmate-loader';
+
+const editorInstance = MonacoTextmateLoader.create(document.getElementById('editor'), {
   language: 'javascript', // required
   theme: 'vs-dark', // optional and default is 'vs-dark'
   value: 'console.log("Hello, World!");' // optional and default is ''
