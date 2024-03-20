@@ -1,12 +1,12 @@
 {
   "name": "@ngeenx/monaco-textmate-loader",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "TextMate syntaxes loader for Monaco Editor",
   "type": "module",
   "main": "./dist/index.js",
-  "types": "dist/types/index.d.js",
+  "types": "./dist/types/index.d.js",
   "scripts": {
-    "build": "tsc && tsc -p ./tsconfig.types.json",
+    "build": "node ./tools/cleanup.js && tsc && tsc -p ./tsconfig.types.json && node ./tools/copyAssets.js",
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
   "private": false,
@@ -29,6 +29,7 @@
   "devDependencies": {
     "css-loader": "6.10.0",
     "file-loader": "^6.2.0",
+    "fs-extra": "^11.2.0",
     "prettier": "3.2.5",
     "style-loader": "^3.3.4",
     "ts-loader": "^9.5.1",
