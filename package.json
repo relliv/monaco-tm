@@ -6,7 +6,7 @@
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.js",
   "scripts": {
-    "build": "node tools/cleanup.js && tsc && tsc -p tsconfig.types.json && node tools/copyAssets && node tools/packageJson",
+    "build": "node tools/cleanup.js && tsc && tsc -p tsconfig.types.json && node tools/copyAssets",
     "package": "npm run build && npm pack",
     "prettier": "prettier --write \"./src/**/*.{js,ts}\""
   },
