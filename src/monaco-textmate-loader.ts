@@ -23,7 +23,7 @@ import VsCodeLightTheme from "./theme/vs-light-plus-theme"
 
 declare var monaco: any
 
-export default class TextmateLoader {
+class MonacoTextmateLoader {
   private static provider: SimpleLanguageInfoProvider | undefined
 
   /**
@@ -97,7 +97,7 @@ export default class TextmateLoader {
    * @param {(scopeName: ScopeName) => Promise<TextMateGrammar>} fetchExtraGrammar - asynchronous function to fetch extra grammar
    * @param {(scopeName: ScopeName) => Promise<any>} fetchExtraConfiguration - asynchronous function to fetch extra configuration
    */
-  public static async load(
+  public static async create(
     element: any,
     options: any,
     theme: string = "vs-dark",
@@ -171,3 +171,5 @@ export default class TextmateLoader {
     return editorInstance
   }
 }
+
+export { MonacoTextmateLoader }

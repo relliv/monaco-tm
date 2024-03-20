@@ -5,7 +5,7 @@ import RegisterUtils from "./utils/register"
 // providers
 import { SimpleLanguageInfoProvider } from "./providers/common-providers"
 
-import TextmateLoader from "./textmate-loader"
+import { MonacoTextmateLoader } from "./monaco-textmate-loader"
 
 // exports
-export { TextmateLoader, SimpleLanguageInfoProvider, RegisterUtils, RegexUtils }
+export { MonacoTextmateLoader, SimpleLanguageInfoProvider, RegisterUtils, RegexUtils }
