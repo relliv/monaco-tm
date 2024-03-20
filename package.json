@@ -1,6 +1,6 @@
 {
   "name": "@ngeenx/monaco-textmate-loader",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "TextMate syntaxes loader for Monaco Editor",
   "type": "module",
   "main": "./dist/index.js",
