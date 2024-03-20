@@ -106,7 +106,7 @@ class MonacoTextmateLoader {
     fetchExtraGrammar?: (scopeName: ScopeName) => Promise<TextMateGrammar>,
     fetchExtraConfiguration?: (scopeName: ScopeName) => Promise<any>
   ): Promise<any> {
-    const data: ArrayBuffer | Response = await CommonUtils.loadVSCodeOnigurumWASM()
+    const data: ArrayBuffer | Response = await CommonUtils.loadVSCodeOnigurumWASM(options)
 
     await loadWASM(data)
 

@@ -16,8 +16,8 @@ export default class CommonUtils {
   }
 
   // Taken from https://github.com/microsoft/vscode/blob/829230a5a83768a3494ebbc61144e7cde9105c73/src/vs/workbench/services/textMate/browser/textMateService.ts#L33-L40
-  public static async loadVSCodeOnigurumWASM(): Promise<Response | ArrayBuffer> {
-    const response = await this.fetchWrapper("/node_modules/vscode-oniguruma/release/onig.wasm")
+  public static async loadVSCodeOnigurumWASM(options: any): Promise<Response | ArrayBuffer> {
+    const response = await this.fetchWrapper(`${options.baseUrl || "/assets"}/vscode-oniguruma/release/onig.wasm`)
     const contentType = response.headers.get("content-type")
 
     if (contentType === "application/wasm") {
