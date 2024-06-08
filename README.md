@@ -4,6 +4,9 @@ This is a simple loader for [Monaco Editor](https://github.com/microsoft/monaco-
 
 [vscode](https://github.com/microsoft/vscode) has **TextMate** support but the Monaco Editor does not support TextMate grammars out of the box. If you want to highlight some language or customize you need to write [monarch](https://microsoft.github.io/monaco-editor/monarch.html) config and provide to Monaco Editor. This package converts TextMate grammars to Monaco Editor grammars. You can use any existing TextMate grammar with Monaco Editor easily.
 
+> [!WARNING]
+> This repository maintains a fork of the original [thebaselab/monaco-tm](https://github.com/thebaselab/monaco-tm) and [bolinfest/monaco-tm](https://github.com/bolinfest/monaco-tm) repos. This package has been modified to work in Angular projects. If you want to use this package in a different environment, please consider differencies between the original and this fork (some dependencies and loaders removed).
+
 ## 📦 Installation
 
 ### PNPM
@@ -50,6 +53,3 @@ When you need a syntax highliter for a language, you can find and install a vsco
 ## 🧩 Built-in grammars
 
 This package includes some built-in grammars. You can use these grammars directly without any additional installation. You can find the list of built-in grammars in the [grammars](./grammars) directory (*also we need a config file for each file, see [configurations](./configurations) directory*).
-
-> [!WARNING]
-> This repository maintains a fork of the original [thebaselab/monaco-tm](https://github.com/thebaselab/monaco-tm) and [bolinfest/monaco-tm](https://github.com/bolinfest/monaco-tm) repos. This package has been modified to work in Angular projects. If you want to use this package in a different environment, please consider differencies between the original and this fork (some dependencies and loaders removed).
