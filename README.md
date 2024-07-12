@@ -1,5 +1,8 @@
 # monaco-tm
 
+> [!NOTE]  
+> This project is experimental and not published on NPM.
+
 - [monaco-tm](#monaco-tm)
   - [🚀 Usage](#-usage)
   - [📌 When to use](#-when-to-use)
@@ -13,9 +16,6 @@ This is a simple loader for [Monaco Editor](https://github.com/microsoft/monaco-
 > [!WARNING]
 > This repository contains a fork of the original [thebaselab/monaco-tm](https://github.com/thebaselab/monaco-tm) and [bolinfest/monaco-tm](https://github.com/bolinfest/monaco-tm) repos. These changes are experimental and may not be suitable for production use.
 > This project working with `vscode-oniguruma` and `vscode-textmate` packages. To prevent compability issues you need to consider monaco ports like `monaco-textmate` and `@estruyf/vscode-theme-converter` packages.
-
-> [!NOTE]  
-> This project is experimental and not published on NPM.
 
 ## 🚀 Usage
 
